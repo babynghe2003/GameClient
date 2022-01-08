@@ -2,6 +2,7 @@ package GameClient.Game.G2048;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.plaf.ColorUIResource;
@@ -13,9 +14,9 @@ import GameClient.GameClient;
 public class GamePanel extends JPanel implements ActionListener {
 
     static final int scale = 2;
-    static final int SCREEN_WITDH = 612*scale;
-    static final int SCREEN_HEIGHT = 612*scale;
     static final int UNIT_SIZE = 150*scale;
+    static final int SCREEN_WITDH = 612*scale;
+    static final int SCREEN_HEIGHT = 650*scale;
     static final int GAME_UNITS = (SCREEN_HEIGHT * SCREEN_HEIGHT) / UNIT_SIZE*scale;
     final int DELAY = 100;
     int x[][] = new int[6][6];
@@ -31,15 +32,25 @@ public class GamePanel extends JPanel implements ActionListener {
     int Max = 2;
     int powww = 1;
 
-    int BestScore;
+
+    int Score = 0;
+    
 
     GameClient gameClient;
     G2048Game G2048G;
 
+    ArrayList<USER> USERS; 
+    int thutu;
+
+    int BestScore; 
 
     public GamePanel(GameClient gameClient, G2048Game G2048G) {
         this.G2048G = G2048G;
         this.gameClient = gameClient;
+        this.USERS = gameClient.USERS;
+        this.thutu = gameClient.thutu;
+        this.BestScore = gameClient.USERS.get(thutu).getRecord2();
+
         random = new Random();
         this.setPreferredSize(new DimensionUIResource(SCREEN_WITDH, SCREEN_HEIGHT));
         this.setBackground(new Color(204, 205, 196));
@@ -77,22 +88,34 @@ public class GamePanel extends JPanel implements ActionListener {
         FontMetrics metrics = getFontMetrics(g.getFont());
         g.setColor(new ColorUIResource(187, 173, 160));
         for (int i = 0; i <= 4; i++) {
-            g.fillRect(i * UNIT_SIZE, 0*scale, 10*scale, SCREEN_HEIGHT);
-            g.fillRect(0*scale, i * UNIT_SIZE, SCREEN_WITDH, 10*scale);
+            g.fillRect(i * UNIT_SIZE, 0*scale+38*scale, 10*scale, SCREEN_HEIGHT);
+            g.fillRect(0*scale, i * UNIT_SIZE+38*scale, SCREEN_WITDH, 10*scale);
         }
 
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 4; j++) {
                 if (x[i][j] > 0) {
                     g.setColor(C[(x[i][j])]);
-                    g.fillRect(j * UNIT_SIZE + 10*scale, i * UNIT_SIZE + 10*scale, UNIT_SIZE - 10*scale, UNIT_SIZE - 10*scale);
+                    g.fillRect(j * UNIT_SIZE + 10*scale, i * UNIT_SIZE + 10*scale+38*scale, UNIT_SIZE - 10*scale, UNIT_SIZE - 10*scale);
                     g.setColor(new Color(10, 10, 10));
                     g.setFont(new Font("Monospace", Font.LAYOUT_LEFT_TO_RIGHT, 30*scale));
                     g.drawString((String) ((x[i][j]) + ""),
                             j * UNIT_SIZE + ((UNIT_SIZE - metrics.stringWidth((String) ((x[i][j]) + ""))) / 2),
-                            i * UNIT_SIZE + 100*scale);
+                            i * UNIT_SIZE + 100*scale+38*scale);
                 }
             }
+            g.setColor(new ColorUIResource(187, 173, 160));
+            g.fillRect(0,0,SCREEN_WITDH,48*scale);
+
+            g.setColor(new Color(10, 10, 10));
+            g.setFont(new Font("Ink Free", Font.BOLD, 42));
+            if (this.Score > this.BestScore) {
+                this.gameClient.updateRecord(2, this.BestScore);
+                BestScore = Score;
+            }
+            
+            g.drawString((String) ("Score : " + Score), 10, 60);
+            g.drawString((String) ("BestScore : " + (BestScore)), SCREEN_WITDH-400, 60);
     }
 
     public void newSQR() {
@@ -116,6 +139,7 @@ public class GamePanel extends JPanel implements ActionListener {
                                 next = true;
                             } else if (x[i][j] == x[k][j] && x[i][j] > 0) {
                                 x[i][j] *= 2;
+                                Score+=x[i][j];
                                 x[k][j] = 0;
                                 next = true; 
                                 Max = Math.max(x[i][j],Max);
@@ -138,6 +162,7 @@ public class GamePanel extends JPanel implements ActionListener {
                                 next = true;
                             } else if (x[i][j] == x[k][j] && x[i][j] > 0) {
                                 x[i][j] *= 2;
+                                Score+=x[i][j];
                                 x[k][j] = 0;
                                 next = true;
                                 Max = Math.max(x[i][j],Max);
@@ -159,6 +184,7 @@ public class GamePanel extends JPanel implements ActionListener {
                                 next = true;
                             } else if (x[i][j] == x[i][k] && x[i][j] > 0) {
                                 x[i][j] *= 2;
+                                Score+=x[i][j];
                                 x[i][k] = 0;
                                 next = true;
                                 Max = Math.max(x[i][j],Max);
@@ -180,6 +206,7 @@ public class GamePanel extends JPanel implements ActionListener {
                                 next = true;
                             } else if (x[i][j] == x[i][k] && x[i][j] > 0) {
                                 x[i][j] *= 2;
+                                Score+=x[i][j];
                                 x[i][k] = 0;
                                 next = true;
                                 Max = Math.max(x[i][j],Max);

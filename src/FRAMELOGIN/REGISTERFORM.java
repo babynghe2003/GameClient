@@ -52,12 +52,12 @@ public class REGISTERFORM extends JFrame {
 
         jPanel2.setBackground(new Color(248, 148, 6));
 
-        jLabel2.setFont(new Font("Noto Sans Mono", 1, 24)); // NOI18N
+        jLabel2.setFont(new Font("Noto Sans Mono", 1, 24));
         jLabel2.setForeground(new Color(254, 254, 254));
         jLabel2.setText("Register");
 
         jButton2.setBackground(new Color(255, 30, 30));
-        jButton2.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        jButton2.setFont(new Font("Ubuntu", 0, 18));
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -65,7 +65,7 @@ public class REGISTERFORM extends JFrame {
         });
 
         jButton3.setBackground(new Color(250, 250, 0));
-        jButton3.setFont(new Font("Ubuntu", 0, 18)); // NOI18N
+        jButton3.setFont(new Font("Ubuntu", 0, 18));
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -100,41 +100,33 @@ public class REGISTERFORM extends JFrame {
 
         jPanel3.setBackground(new Color(38, 38, 38));
 
-        jLabel1.setFont(new Font("Noto Sans Mono", 0, 24)); // NOI18N
+        jLabel1.setFont(new Font("Noto Sans Mono", 0, 24));
         jLabel1.setForeground(new Color(254, 254, 254));
         jLabel1.setText("Tên đầy đủ:");
 
         jLabel3.setBackground(new Color(247, 247, 247));
-        jLabel3.setFont(new Font("Noto Sans Mono", 0, 24)); // NOI18N
+        jLabel3.setFont(new Font("Noto Sans Mono", 0, 24));
         jLabel3.setForeground(new Color(254, 254, 254));
         jLabel3.setText("Tên đăng nhập:");
 
-        jLabel4.setFont(new Font("Noto Sans Mono", 0, 24)); // NOI18N
+        jLabel4.setFont(new Font("Noto Sans Mono", 0, 24));
         jLabel4.setForeground(new Color(254, 254, 254));
         jLabel4.setText("Mật khẩu: ");
 
-        jLabel5.setFont(new Font("Noto Sans Mono", 0, 24)); // NOI18N
+        jLabel5.setFont(new Font("Noto Sans Mono", 0, 24));
         jLabel5.setForeground(new Color(254, 254, 254));
         jLabel5.setText("Nhập lại mật khẩu: ");
 
-        IngameField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                IngameFieldActionPerformed(evt);
-            }
-        });
+        IngameField.setFont(new Font("Noto Sans Mono", 0, 27));
 
-        UserNameField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                UserNameFieldActionPerformed(evt);
-            }
-        });
+        UserNameField.setFont(new Font("Noto Sans Mono", 0, 27));
 
-        PasswordField.setFont(new Font("Ubuntu", 0, 24)); // NOI18N
+        PasswordField.setFont(new Font("Noto Sans Mono", 0, 36));
 
-        PasswordField2.setFont(new Font("Ubuntu", 0, 24)); // NOI18N
+        PasswordField2.setFont(new Font("Noto Sans Mono", 0, 36));
 
         jButton1.setBackground(new Color(60, 168, 50));
-        jButton1.setFont(new Font("Noto Sans Mono", 0, 24)); // NOI18N
+        jButton1.setFont(new Font("Noto Sans Mono", 0, 24));
         jButton1.setForeground(new Color(254, 254, 254));
         jButton1.setText("Đăng kí");
         jButton1.addActionListener(new ActionListener() {
@@ -144,7 +136,7 @@ public class REGISTERFORM extends JFrame {
         });
 
         jButton4.setBackground(new Color(248, 148, 6));
-        jButton4.setFont(new Font("Noto Mono", 0, 24)); // NOI18N
+        jButton4.setFont(new Font("Noto Mono", 0, 24));
         jButton4.setForeground(new Color(254, 254, 254));
         jButton4.setText("Đăng nhập");
         jButton4.addActionListener(new ActionListener() {
@@ -153,99 +145,78 @@ public class REGISTERFORM extends JFrame {
             }
         });
 
-        Mess.setFont(new Font("Noto Mono", 0, 18)); // NOI18N
+        Mess.setFont(new Font("Noto Mono", 0, 24));
         Mess.setForeground(new Color(255, 0, 0));
-        Mess.setText("lỗi");
+        Mess.setText("");
 
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGroup(jPanel3Layout
-                                                        .createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addGap(37, 37, 37)
-                                                                .addGroup(jPanel3Layout
-                                                                        .createParallelGroup(
-                                                                                GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jLabel5)
-                                                                        .addGroup(GroupLayout.Alignment.TRAILING,
-                                                                                jPanel3Layout.createSequentialGroup()
-                                                                                        .addGroup(jPanel3Layout
-                                                                                                .createParallelGroup(
-                                                                                                        GroupLayout.Alignment.TRAILING)
-                                                                                                .addComponent(jLabel1)
-                                                                                                .addComponent(jLabel3))
-                                                                                        .addGap(14, 14, 14))))
-                                                        .addGroup(GroupLayout.Alignment.TRAILING,
-                                                                jPanel3Layout.createSequentialGroup()
-                                                                        .addGap(163, 163, 163)
-                                                                        .addComponent(jLabel4,
-                                                                                GroupLayout.PREFERRED_SIZE, 140,
-                                                                                GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel3Layout
-                                                        .createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(PasswordField)
-                                                        .addComponent(IngameField)
-                                                        .addComponent(UserNameField)
-                                                        .addComponent(PasswordField2, GroupLayout.Alignment.TRAILING,
-                                                                GroupLayout.PREFERRED_SIZE, 434,
-                                                                GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(244, 244, 244)
-                                                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 171,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGap(144, 144, 144)
-                                                .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 177,
-                                                        GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(115, Short.MAX_VALUE))
-                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(Mess, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE)
-                                .addGap(213, 213, 213)));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3))
+                                        .addGap(14, 14, 14))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PasswordField)
+                            .addComponent(IngameField)
+                            .addComponent(UserNameField)
+                            .addComponent(PasswordField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Mess, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(213, 213, 213))
+        );
         jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(47, 47, 47)
-                                                .addComponent(jLabel1)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(28, 28, 28)
-                                                .addComponent(IngameField, GroupLayout.PREFERRED_SIZE, 58,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGap(37, 37, 37)
-                                                .addGroup(jPanel3Layout
-                                                        .createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(UserNameField, GroupLayout.PREFERRED_SIZE, 58,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel3))
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 44,
-                                                        Short.MAX_VALUE)
-                                                .addGroup(jPanel3Layout
-                                                        .createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(PasswordField, GroupLayout.PREFERRED_SIZE, 53,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel4))))
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel5)
-                                        .addComponent(PasswordField2, GroupLayout.PREFERRED_SIZE, 52,
-                                                GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                .addComponent(Mess, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 77,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 77,
-                                                GroupLayout.PREFERRED_SIZE))
-                                .addGap(73, 73, 73)));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(IngameField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(PasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(Mess, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73))
+        );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 870, 590));
 

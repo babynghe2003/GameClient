@@ -15,7 +15,7 @@ public class Main {
     public static void loadData(){
     
         try {
-            Connection conn = new ConnectSQL().getConnection();
+            Connection conn = new ConnectSQL().getConnection(); 
             int number;
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("Select * from accout");

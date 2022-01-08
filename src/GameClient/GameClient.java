@@ -11,6 +11,9 @@ import Main.*;
 import java.util.ArrayList;
 import java.util.logging.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+
 import FRAMELOGIN.*;
 import GameClient.Game.G2048.G2048Game;
 import GameClient.Game.Snake.SnakeGame;
@@ -24,13 +27,12 @@ public class GameClient extends javax.swing.JFrame {
         this.thutu = thutu;
         this.USERS = USERS;
         this.LI = LI;
-        initComponents();
-    }
-    public GameClient() {
-        initComponents();
-    }
+        
 
-    private void initComponents() {
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setBackground(new Color(38, 38, 38));
+        this.setUndecorated(true);
+        this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -45,10 +47,17 @@ public class GameClient extends javax.swing.JFrame {
         username = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new Color(38, 38, 38));
-        setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        initComponents();
+    }
+    public GameClient() {
+        initComponents();
+    }
+
+    private void initComponents() {
+
+        
+
+        
 
         jPanel2.setBackground(new Color(248, 148, 6));
 
@@ -115,7 +124,8 @@ public class GameClient extends javax.swing.JFrame {
         ninjabtn.setBackground(new Color(45, 45, 45));
         ninjabtn.setFont(new Font("Noto Sans Mono", 0, 36)); 
         ninjabtn.setForeground(new Color(255, 255, 255));
-        ninjabtn.setText("<html>Ninja chém rùa<br>Best record: <html>"+USERS.get(thutu).getRecord1());
+        ninjabtn.setIcon(new ImageIcon(getPlayerImage("./Logo/Assasin.png")));
+        ninjabtn.setText("<html>Ninja<br>Best record: <html>"+USERS.get(thutu).getRecord1());
         ninjabtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ninjabtn.setFocusPainted(false);
         ninjabtn.addActionListener(new ActionListener() {
@@ -128,6 +138,7 @@ public class GameClient extends javax.swing.JFrame {
         g2048btn.setBackground(new Color(45, 45, 45));
         g2048btn.setFont(new Font("Noto Sans Mono", 0, 36)); 
         g2048btn.setForeground(new Color(255, 255, 255));
+        g2048btn.setIcon(new ImageIcon(getPlayerImage("./Logo/g2048.png")));
         g2048btn.setText("<html>2048<br>Best score: <html>"+USERS.get(thutu).getRecord2());
         g2048btn.setToolTipText("");
         g2048btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -141,6 +152,7 @@ public class GameClient extends javax.swing.JFrame {
         snakebtn.setBackground(new Color(45, 45, 45));
         snakebtn.setFont(new Font("Noto Sans Mono", 0, 36)); 
         snakebtn.setForeground(new Color(255, 255, 255));
+        snakebtn.setIcon(new ImageIcon(getPlayerImage("./Logo/snake.png")));
         snakebtn.setText("<html>Snake<br>Best score: <html>"+USERS.get(thutu).getRecord3());
         snakebtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         snakebtn.addActionListener(new ActionListener() {
@@ -205,15 +217,31 @@ public class GameClient extends javax.swing.JFrame {
         pack();
     }
 
-        
+       
+    public Image getPlayerImage(String Path) {
+
+        try {
+
+            return ((Image)ImageIO.read(getClass().getResourceAsStream(Path))).getScaledInstance(300,300,0);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            System.out.println("loi file anh");
+
+        }
+
+        return null;
+    }
+
     private void G2048Action(ActionEvent evt){
         new G2048Game(this).setVisible(true);
-                this.setVisible(false);
+        this.dispose();
     }
     
     private void snakeAction(ActionEvent evt){
         new SnakeGame(this).setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }
     
     private void jButton2ActionPerformed(ActionEvent evt) {
@@ -233,7 +261,7 @@ public class GameClient extends javax.swing.JFrame {
         try {
             Connection conn = new ConnectSQL().getConnection();
             Statement st = conn.createStatement();
-            st.executeUpdate("UPDATE accout SET record"+magame+" = "+score);
+            st.executeUpdate("UPDATE accout SET record"+magame+" = "+score+" where username = '"+USERS.get(thutu).getUsername()+"'");
             switch (magame) {
                 case 1:
                     USERS.get(thutu).setRecord1(score);
@@ -252,6 +280,7 @@ public class GameClient extends javax.swing.JFrame {
                 default:
                     break;
             }
+            initComponents();
             System.out.println("updateRecord successful");
 
         } catch (SQLException e) {
