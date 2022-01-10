@@ -93,7 +93,10 @@ public class NinjaPanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         map.draw(g2);
+        
         player.draw(g2);
+
+        map.drawWall(g2);
 
     }
 

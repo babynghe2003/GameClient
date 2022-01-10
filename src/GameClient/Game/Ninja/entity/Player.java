@@ -38,6 +38,8 @@ public class Player extends Entity {
     public void setDefaultValues() {
         x = (gp.screenWidth)/2; 
         y = (gp.screenHeight)/2;
+        image = getPlayerImage("./sprites/AssasinRight-1.png");
+
 
     }
 
@@ -132,16 +134,14 @@ public class Player extends Entity {
                 y = gp.screenHeight - gp.tileSize;
         }
         weapon.update();
-        System.out.println(x+" ");
-
     }
 
 
     public void draw(Graphics2D g2) {
-        // g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
+        g2.drawImage(image, (gp.screenWidth)/2, (gp.screenHeight)/2 , gp.tileSize, gp.tileSize, null);
         // weapon.draw(g2);
-        g2.setColor(Color.BLUE);
-        g2.fillRect((gp.screenWidth - gp.tileSize)/2, (gp.screenHeight - gp.tileSize)/2, gp.tileSize, gp.tileSize);
+        // g2.setColor(Color.BLUE);
+        // g2.fillRect((gp.screenWidth - gp.tileSize)/2, (gp.screenHeight - gp.tileSize)/2, gp.tileSize, gp.tileSize);
     }
 
 }
