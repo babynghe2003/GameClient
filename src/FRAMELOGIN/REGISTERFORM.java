@@ -21,17 +21,17 @@ public class REGISTERFORM extends JFrame {
     JPasswordField PasswordField = new JPasswordField();
     JPasswordField PasswordField2 = new JPasswordField();
     JTextField UserNameField = new JTextField();
-    JButton jButton1 = new JButton();
-    JButton jButton2 = new JButton();
-    JButton jButton3 = new JButton();
-    JButton jButton4 = new JButton();
-    JLabel jLabel1 = new JLabel();
-    JLabel jLabel2 = new JLabel();
-    JLabel jLabel3 = new JLabel();
-    JLabel jLabel4 = new JLabel();
-    JLabel jLabel5 = new JLabel();
-    JPanel jPanel2 = new JPanel();
-    JPanel jPanel3 = new JPanel();
+    JButton Register = new JButton();
+    JButton hide = new JButton();
+    JButton close = new JButton();
+    JButton BackToLogin = new JButton();
+    JLabel ingameLabel = new JLabel();
+    JLabel title = new JLabel();
+    JLabel usernameLabel = new JLabel();
+    JLabel passLabel = new JLabel();
+    JLabel passLabel2 = new JLabel();
+    JPanel header = new JPanel();
+    JPanel body = new JPanel();
 
     public REGISTERFORM(LOGIN LI, ArrayList<USER> USER) {
         this.USERS = USER;
@@ -50,72 +50,72 @@ public class REGISTERFORM extends JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new Color(248, 148, 6));
+        header.setBackground(new Color(248, 148, 6));
 
-        jLabel2.setFont(new Font("Noto Sans Mono", 1, 24));
-        jLabel2.setForeground(new Color(254, 254, 254));
-        jLabel2.setText("Register");
+        title.setFont(new Font("Noto Sans Mono", 1, 24));
+        title.setForeground(new Color(254, 254, 254));
+        title.setText("Register");
 
-        jButton2.setBackground(new Color(255, 30, 30));
-        jButton2.setFont(new Font("Ubuntu", 0, 18));
-        jButton2.addActionListener(new ActionListener() {
+        hide.setBackground(new Color(255, 30, 30));
+        hide.setFont(new Font("Ubuntu", 0, 18));
+        hide.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                hideAction(evt);
             }
         });
 
-        jButton3.setBackground(new Color(250, 250, 0));
-        jButton3.setFont(new Font("Ubuntu", 0, 18));
-        jButton3.addActionListener(new ActionListener() {
+        close.setBackground(new Color(250, 250, 0));
+        close.setFont(new Font("Ubuntu", 0, 18));
+        close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                closeAction(evt);
             }
         });
 
-        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        GroupLayout jPanel2Layout = new GroupLayout(header);
+        header.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(title, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 569, Short.MAX_VALUE)
-                                .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(close, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hide, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21)));
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                        .addComponent(title)
+                                        .addComponent(close, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                                 Short.MAX_VALUE)
-                                        .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 39,
+                                        .addComponent(hide, GroupLayout.PREFERRED_SIZE, 39,
                                                 GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(20, Short.MAX_VALUE)));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 80));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 80));
 
-        jPanel3.setBackground(new Color(38, 38, 38));
+        body.setBackground(new Color(38, 38, 38));
 
-        jLabel1.setFont(new Font("Noto Sans Mono", 0, 24));
-        jLabel1.setForeground(new Color(254, 254, 254));
-        jLabel1.setText("Tên đầy đủ:");
+        ingameLabel.setFont(new Font("Noto Sans Mono", 0, 24));
+        ingameLabel.setForeground(new Color(254, 254, 254));
+        ingameLabel.setText("Tên đầy đủ:");
 
-        jLabel3.setBackground(new Color(247, 247, 247));
-        jLabel3.setFont(new Font("Noto Sans Mono", 0, 24));
-        jLabel3.setForeground(new Color(254, 254, 254));
-        jLabel3.setText("Tên đăng nhập:");
+        usernameLabel.setBackground(new Color(247, 247, 247));
+        usernameLabel.setFont(new Font("Noto Sans Mono", 0, 24));
+        usernameLabel.setForeground(new Color(254, 254, 254));
+        usernameLabel.setText("Tên đăng nhập:");
 
-        jLabel4.setFont(new Font("Noto Sans Mono", 0, 24));
-        jLabel4.setForeground(new Color(254, 254, 254));
-        jLabel4.setText("Mật khẩu: ");
+        passLabel.setFont(new Font("Noto Sans Mono", 0, 24));
+        passLabel.setForeground(new Color(254, 254, 254));
+        passLabel.setText("Mật khẩu: ");
 
-        jLabel5.setFont(new Font("Noto Sans Mono", 0, 24));
-        jLabel5.setForeground(new Color(254, 254, 254));
-        jLabel5.setText("Nhập lại mật khẩu: ");
+        passLabel2.setFont(new Font("Noto Sans Mono", 0, 24));
+        passLabel2.setForeground(new Color(254, 254, 254));
+        passLabel2.setText("Nhập lại mật khẩu: ");
 
         IngameField.setFont(new Font("Noto Sans Mono", 0, 27));
 
@@ -125,23 +125,23 @@ public class REGISTERFORM extends JFrame {
 
         PasswordField2.setFont(new Font("Noto Sans Mono", 0, 36));
 
-        jButton1.setBackground(new Color(60, 168, 50));
-        jButton1.setFont(new Font("Noto Sans Mono", 0, 24));
-        jButton1.setForeground(new Color(254, 254, 254));
-        jButton1.setText("Đăng kí");
-        jButton1.addActionListener(new ActionListener() {
+        Register.setBackground(new Color(60, 168, 50));
+        Register.setFont(new Font("Noto Sans Mono", 0, 24));
+        Register.setForeground(new Color(254, 254, 254));
+        Register.setText("Đăng kí");
+        Register.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegisterAction(evt);
             }
         });
 
-        jButton4.setBackground(new Color(248, 148, 6));
-        jButton4.setFont(new Font("Noto Mono", 0, 24));
-        jButton4.setForeground(new Color(254, 254, 254));
-        jButton4.setText("Đăng nhập");
-        jButton4.addActionListener(new ActionListener() {
+        BackToLogin.setBackground(new Color(248, 148, 6));
+        BackToLogin.setFont(new Font("Noto Mono", 0, 24));
+        BackToLogin.setForeground(new Color(254, 254, 254));
+        BackToLogin.setText("Đăng nhập");
+        BackToLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                LoginAction(evt);
             }
         });
 
@@ -149,89 +149,89 @@ public class REGISTERFORM extends JFrame {
         Mess.setForeground(new Color(255, 0, 0));
         Mess.setText("");
 
-        GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+        GroupLayout bodyPanel = new GroupLayout(body);
+        body.setLayout(bodyPanel);
+        bodyPanel.setHorizontalGroup(
+            bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanel.createSequentialGroup()
+                .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bodyPanel.createSequentialGroup()
+                        .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bodyPanel.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel3))
+                                .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(passLabel2)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanel.createSequentialGroup()
+                                        .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ingameLabel)
+                                            .addComponent(usernameLabel))
                                         .addGap(14, 14, 14))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanel.createSequentialGroup()
                                 .addGap(163, 163, 163)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(passLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PasswordField)
                             .addComponent(IngameField)
                             .addComponent(UserNameField)
                             .addComponent(PasswordField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(bodyPanel.createSequentialGroup()
                         .addGap(244, 244, 244)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(144, 144, 144)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BackToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(115, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanel.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Mess, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        bodyPanel.setVerticalGroup(
+            bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanel.createSequentialGroup()
+                .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bodyPanel.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jLabel1)
+                        .addComponent(ingameLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(bodyPanel.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(IngameField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(usernameLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
+                            .addComponent(passLabel))))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passLabel2)
                     .addComponent(PasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(Mess, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(bodyPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 870, 590));
+        getContentPane().add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 870, 590));
 
         pack();
     }
 
-    private void jButton3ActionPerformed(ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
+    private void closeAction(ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         this.setState(JFrame.ICONIFIED);
     }
 
-    private void jButton2ActionPerformed(ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
+    private void hideAction(ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
     }
 
-    private void jButton1ActionPerformed(ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+    private void RegisterAction(ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         if (UserNameField.getText().length() == 0 ||
                 IngameField.getText().length() == 0 ||
                 String.valueOf(PasswordField.getPassword()).length() == 0 ||
@@ -259,7 +259,7 @@ public class REGISTERFORM extends JFrame {
     private void IngameFieldActionPerformed(ActionEvent evt) {
     }
 
-    private void jButton4ActionPerformed(ActionEvent evt) {
+    private void LoginAction(ActionEvent evt) {
         this.LI.setVisible(true);
         this.dispose();
     }

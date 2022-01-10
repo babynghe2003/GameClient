@@ -13,15 +13,33 @@ import java.util.logging.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import FRAMELOGIN.*;
 import GameClient.Game.G2048.G2048Game;
 import GameClient.Game.Snake.SnakeGame;
+import GameClient.Game.Ninja.gameMain.NinjaFrame;
+import GameClient.Game.Ninja.map.Map;
+
+
 public class GameClient extends javax.swing.JFrame {
 
     LOGIN LI;
     public ArrayList<USER> USERS;
     public int thutu;
+
+    JPanel header = new javax.swing.JPanel();
+    JLabel title = new javax.swing.JLabel();
+    JButton hide = new javax.swing.JButton();
+    JButton close = new javax.swing.JButton();
+    JPanel body = new javax.swing.JPanel();
+    JPanel listGame = new javax.swing.JPanel();
+    JButton ninjabtn = new javax.swing.JButton();
+    JButton g2048btn = new javax.swing.JButton();
+    JButton snakebtn = new javax.swing.JButton();
+    JButton comingGame = new javax.swing.JButton();
+    JLabel username = new javax.swing.JLabel();
+    JButton Logout = new javax.swing.JButton();
 
     public GameClient(LOGIN LI, ArrayList<USER> USERS, int thutu) {
         this.thutu = thutu;
@@ -34,19 +52,6 @@ public class GameClient extends javax.swing.JFrame {
         this.setUndecorated(true);
         this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        ninjabtn = new javax.swing.JButton();
-        g2048btn = new javax.swing.JButton();
-        snakebtn = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        username = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-
         initComponents();
     }
     public GameClient() {
@@ -56,46 +61,47 @@ public class GameClient extends javax.swing.JFrame {
     private void initComponents() {
 
         
+        //Design UI
+        {
 
-        
+        header.setBackground(new Color(248, 148, 6));
 
-        jPanel2.setBackground(new Color(248, 148, 6));
+        title.setFont(new Font("Noto Sans Mono", 1, 36)); 
+        title.setForeground(new Color(254, 254, 254));
+        title.setText("Game Client ");
 
-        jLabel2.setFont(new Font("Noto Sans Mono", 1, 36)); 
-        jLabel2.setForeground(new Color(254, 254, 254));
-        jLabel2.setText("Game Client ");
-
-        jButton2.setBackground(new Color(255, 30, 30));
-        jButton2.setFont(new Font("Ubuntu", 0, 18)); 
-        jButton2.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new ActionListener() {
+        hide.setBackground(new Color(255, 30, 30));
+        hide.setFont(new Font("Ubuntu", 0, 18)); 
+        hide.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        hide.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new Color(250, 250, 0));
-        jButton3.setFont(new Font("Ubuntu", 0, 18)); 
-        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton3.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jButton3.setFocusPainted(false);
-        jButton3.addActionListener(new ActionListener() {
+        close.setBackground(new Color(250, 250, 0));
+        close.setFont(new Font("Ubuntu", 0, 18)); 
+        close.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        close.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        close.setFocusPainted(false);
+        close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(header);
+        header.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1420, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hide, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         jPanel2Layout.setVerticalGroup(
@@ -104,22 +110,22 @@ public class GameClient extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                        .addComponent(close, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(hide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(title)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 80));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 80));
 
-        jPanel1.setBackground(new Color(38, 38, 38));
+        body.setBackground(new Color(38, 38, 38));
 
-        jPanel3.setBackground(new Color(38, 38, 38));
-        jPanel3.setLayout(new GridLayout(2, 2, 20, 20));
+        listGame.setBackground(new Color(38, 38, 38));
+        listGame.setLayout(new GridLayout(2, 2, 20, 20));
 
         ninjabtn.setBackground(new Color(45, 45, 45));
         ninjabtn.setFont(new Font("Noto Sans Mono", 0, 36)); 
@@ -130,10 +136,12 @@ public class GameClient extends javax.swing.JFrame {
         ninjabtn.setFocusPainted(false);
         ninjabtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                
+                NinjaAction(evt);
             }
+
+            
         });
-        jPanel3.add(ninjabtn);
+        listGame.add(ninjabtn);
 
         g2048btn.setBackground(new Color(45, 45, 45));
         g2048btn.setFont(new Font("Noto Sans Mono", 0, 36)); 
@@ -147,7 +155,7 @@ public class GameClient extends javax.swing.JFrame {
                 G2048Action(evt);
             }
         });
-        jPanel3.add(g2048btn);
+        listGame.add(g2048btn);
 
         snakebtn.setBackground(new Color(45, 45, 45));
         snakebtn.setFont(new Font("Noto Sans Mono", 0, 36)); 
@@ -160,34 +168,34 @@ public class GameClient extends javax.swing.JFrame {
                 snakeAction(evt);
             }
         });
-        jPanel3.add(snakebtn);
+        listGame.add(snakebtn);
 
-        jButton6.setBackground(new Color(45, 45, 45));
-        jButton6.setFont(new Font("Noto Sans Mono", 0, 36)); 
-        jButton6.setForeground(new Color(255, 255, 255));
-        jButton6.setText("Coming soon...");
-        jButton6.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jPanel3.add(jButton6);
+        comingGame.setBackground(new Color(45, 45, 45));
+        comingGame.setFont(new Font("Noto Sans Mono", 0, 36)); 
+        comingGame.setForeground(new Color(255, 255, 255));
+        comingGame.setText("Coming soon...");
+        comingGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        listGame.add(comingGame);
 
         username.setFont(new Font("Ubuntu", 0, 36)); 
         username.setForeground(new Color(250, 250, 250));
         username.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         username.setText(this.USERS.get(thutu).getIngame());
 
-        jButton7.setBackground(new Color(244, 23, 23));
-        jButton7.setFont(new Font("Ubuntu", 0, 36)); 
-        jButton7.setForeground(new Color(255, 255, 255));
-        jButton7.setText("Log out");
-        jButton7.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jButton7.setFocusPainted(false);
-        jButton7.addActionListener(new ActionListener() {
+        Logout.setBackground(new Color(244, 23, 23));
+        Logout.setFont(new Font("Ubuntu", 0, 36)); 
+        Logout.setForeground(new Color(255, 255, 255));
+        Logout.setText("Log out");
+        Logout.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        Logout.setFocusPainted(false);
+        Logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
-        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        GroupLayout jPanel1Layout = new GroupLayout(body);
+        body.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,8 +204,8 @@ public class GameClient extends javax.swing.JFrame {
                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(username, GroupLayout.PREFERRED_SIZE, 417, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7))
-                    .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, 1767, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Logout))
+                    .addComponent(listGame, GroupLayout.PREFERRED_SIZE, 1767, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -205,17 +213,18 @@ public class GameClient extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Logout, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
                     .addComponent(username, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, 657, GroupLayout.PREFERRED_SIZE)
+                .addComponent(listGame, GroupLayout.PREFERRED_SIZE, 657, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1900, 860));
+        getContentPane().add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1900, 860));
 
         pack();
     }
+        }
 
        
     public Image getPlayerImage(String Path) {
@@ -232,6 +241,14 @@ public class GameClient extends javax.swing.JFrame {
         }
 
         return null;
+        
+    }
+
+    private void NinjaAction(ActionEvent evt) {
+        new NinjaFrame().setVisible(true);
+    
+        System.out.println("Ninja");
+        this.dispose();
     }
 
     private void G2048Action(ActionEvent evt){
@@ -290,17 +307,5 @@ public class GameClient extends javax.swing.JFrame {
         }
     }
 
-    private JButton ninjabtn;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JButton g2048btn;
-    private JButton snakebtn;
-    private JButton jButton6;
-    private JButton jButton7;
-    private JLabel jLabel2;
-    private JPanel jPanel1;
-    private JPanel jPanel2;
-    private JPanel jPanel3;
-    private JLabel username;
 
 }
