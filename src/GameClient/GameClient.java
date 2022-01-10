@@ -245,10 +245,16 @@ public class GameClient extends javax.swing.JFrame {
     }
 
     private void NinjaAction(ActionEvent evt) {
-        new NinjaFrame().setVisible(true);
-    
-        System.out.println("Ninja");
-        this.dispose();
+        try {
+            new NinjaFrame().setVisible(true);
+            System.out.println("Ninja");
+            this.dispose();
+        } catch (Exception e) {
+            System.out.println("loi mo frame");
+        }
+        
+        
+        
     }
 
     private void G2048Action(ActionEvent evt){

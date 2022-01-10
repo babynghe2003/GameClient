@@ -29,6 +29,7 @@ public class Map {
     int Mapy;
 
     public Map(NinjaPanel gp, Player player, KeyHandler keyH) {
+        System.out.println("Map da mo");
         this.keyH = keyH;
         this.player = player;
         tiles = new Tile[10];
@@ -65,15 +66,13 @@ public class Map {
             tiles[3].image = ImageIO.read(getClass().getResourceAsStream("./mapSprites/Map-wall-2.png"));
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             System.out.println("Loi nhap map");
         }
     }
 
     public void update() {
-        // Mapx=gp.screenWidth - player.x - gp.tileSize*2;
-        // Mapy=gp.screenHeight - player.y - gp.tileSize*2;
-
+        
         if (keyH.upPressed) {
             Mapy += 8;
         } else if (keyH.downPressed) {
@@ -89,7 +88,7 @@ public class Map {
 
         try {
 
-            InputStream is = getClass().getResourceAsStream("./Map.txt");
+            InputStream is = getClass().getResourceAsStream("./mapSprites/Map.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             for (int i = 0; i < row; i++) {

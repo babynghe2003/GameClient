@@ -20,10 +20,10 @@ public class NinjaPanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize*maxScreenWidth;
     public final int screenHeight = tileSize*maxScreenHeight; // 768*576 px
 
-    KeyHandler keyH = new KeyHandler();
-    Thread gameThread;
-    Player player = new Player(this, keyH);
-    Map map = new Map(this, player, keyH);
+    KeyHandler  keyH = new KeyHandler();;
+    Thread      gameThread;
+    Player      player;
+    Map         map;
 
     int playerX = 100;
     int playerY = 100;
@@ -47,6 +47,10 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void start() {
+
+        
+        player = new Player(this, keyH);
+        map = new Map(this, player, keyH);
 
         gameThread = new Thread(this);
         gameThread.start();
@@ -88,15 +92,17 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void paintComponent(Graphics g) {
-
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
         map.draw(g2);
-        
+
         player.draw(g2);
 
         map.drawWall(g2);
+            
+
+        
 
     }
 
