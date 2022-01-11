@@ -42,6 +42,7 @@ public class Fruit extends FruitGoc{
     }
 
     public void newApple(){
+        speed = rand.nextInt(3)+3;
         x=(4+rand.nextInt(13))*gp.tileSize/2; 
         y=(4+rand.nextInt(13))*gp.tileSize/2;
         rotate = rand.nextInt(360);
@@ -66,6 +67,8 @@ public class Fruit extends FruitGoc{
         || collision.getMinY() <= map.MapMinY
         || collision.getMaxX() >= map.MapMaxX
         || collision.getMaxY() >= map.MapMaxY) cuted = true;
+
+
         
     }
 

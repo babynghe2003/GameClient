@@ -88,6 +88,7 @@ public class NinjaPanel extends JPanel implements Runnable {
             timer += (currentTime - lastTime);
             lastTime = currentTime;
             if (delta > 0) {
+                if (player.hearts>0)
                 Update();
                 repaint();
                 delta--;
@@ -127,7 +128,7 @@ public class NinjaPanel extends JPanel implements Runnable {
             if ((player.Collisions.getBounds().intersects(fruits.get(i).collision.getBounds()))){
                 if (fruits.get(i) instanceof Fruit)
                 Score++;
-                else player.hearts --;
+                else player.hearts--;
                 fruits.remove(i);
                 System.out.println(Score);
             }
@@ -136,7 +137,7 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void MonsterManager(){
-        if (rand.nextInt(100) > 80)
+        if (rand.nextInt(100) > 70)
         fruits.add(new Bomb(this,map));
         else fruits.add(new Fruit(this,map));
     }
@@ -163,7 +164,7 @@ public class NinjaPanel extends JPanel implements Runnable {
         g.setColor(new Color(10, 10, 10));
             g.setFont(new Font("Ink Free", Font.BOLD, 42));
             if (this.Score > this.BestScore) {
-                this.gameClient.updateRecord(1, this.BestScore);
+                
                 BestScore = Score;
             }
             
@@ -172,6 +173,10 @@ public class NinjaPanel extends JPanel implements Runnable {
 
         } else {
             gameOver(g);
+            if (keyH.exit){
+                this.gameClient.updateRecord(1, this.BestScore);
+                exit();
+            } 
         }
 
     }
@@ -185,8 +190,8 @@ public class NinjaPanel extends JPanel implements Runnable {
         g.setColor(Color.GREEN);
         g.setFont(new Font("Ink Free", Font.BOLD, 50));
         metrics = getFontMetrics(g.getFont());
-        g.drawString((String) ("Your Score: " + (Score - 6)),
-                (screenWidth - metrics.stringWidth((String) ("Your Score: " + (Score - 6)))) / 2, screenWidth/2-100*scale +100);
+        g.drawString((String) ("Your Score: " + Score),
+                (screenWidth - metrics.stringWidth((String) ("Your Score: " + Score))) / 2, screenWidth/2-100*scale +100);
         g.setColor(Color.WHITE);
         g.setFont(new Font("Ink Free", Font.BOLD, 50));
         metrics = getFontMetrics(g.getFont());
@@ -196,7 +201,9 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void exit() {
+        gameClient.setVisible(true);
         this.ninjaFrame.dispose();
+
     }
 
 }

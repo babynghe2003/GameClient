@@ -86,7 +86,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.setColor(new Color(38,38,38));
         g.setFont(new Font("Ink Free", Font.BOLD, 36));
         if (bodyParts - 6 > BestScore) {
-            gameClient.updateRecord(3, BestScore);
+            
             BestScore = bodyParts - 6;
         }
 
@@ -211,6 +211,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void exit() {
+        gameClient.updateRecord(3, BestScore);
         this.snakeGame.dispose();
     }
 

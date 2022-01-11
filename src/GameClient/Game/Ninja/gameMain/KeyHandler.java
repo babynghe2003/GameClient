@@ -6,7 +6,7 @@ import GameClient.Game.Ninja.entity.*;
 public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, attackPressed;
 
-    public boolean upcheck, downcheck, leftcheck, rightcheck;
+    public boolean upcheck, downcheck, leftcheck, rightcheck, exit;
 
     public boolean stand;
 
@@ -15,13 +15,14 @@ public class KeyHandler implements KeyListener {
         downcheck = false;
         leftcheck = false;
         rightcheck = false;
+        exit = false;
     }
     
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
-
+        
+        
     }
 
     @Override
@@ -52,6 +53,9 @@ public class KeyHandler implements KeyListener {
 
         if (code == KeyEvent.VK_J) {
             attackPressed = true;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            exit = true;
         }
 
     }
