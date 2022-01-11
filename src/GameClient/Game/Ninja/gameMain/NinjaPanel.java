@@ -18,7 +18,7 @@ public class NinjaPanel extends JPanel implements Runnable {
     public final int maxScreenWidth = 16;
     public final int maxScreenHeight = 12;
     public final int screenWidth = tileSize*maxScreenWidth;
-    public final int screenHeight = tileSize*maxScreenHeight; // 768*576 px
+    public final int screenHeight = tileSize*maxScreenHeight; // 768*576 px]
 
     KeyHandler  keyH = new KeyHandler();;
     Thread      gameThread;
@@ -27,7 +27,7 @@ public class NinjaPanel extends JPanel implements Runnable {
 
     int playerX = 100;
     int playerY = 100;
-    int playerSpeed = 8;
+    public int playerSpeed = 8;
 
     int mouth = 300;
     public int step;

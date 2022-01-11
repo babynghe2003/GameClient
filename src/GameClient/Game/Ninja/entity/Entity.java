@@ -1,6 +1,7 @@
 package GameClient.Game.Ninja.entity;
 
-import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.image.*;
 
 public class Entity {
 
@@ -9,5 +10,7 @@ public class Entity {
 
     public BufferedImage stand, move;
     public String direction = "RR";
+
+    public Rectangle Collisions;
 
 }

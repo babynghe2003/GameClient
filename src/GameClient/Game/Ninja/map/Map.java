@@ -28,6 +28,11 @@ public class Map {
     int Mapx;
     int Mapy;
 
+    public int MapMinX;
+    public int MapMinY;
+    public int MapMaxX;
+    public int MapMaxY;
+
     public Map(NinjaPanel gp, Player player, KeyHandler keyH) {
         System.out.println("Map da mo");
         this.keyH = keyH;
@@ -47,6 +52,7 @@ public class Map {
 
         col = 21;
         row = 21;
+        
 
         Maps = new Tile[row][col];
     }
@@ -72,16 +78,52 @@ public class Map {
     }
 
     public void update() {
-        
-        if (keyH.upPressed) {
-            Mapy += 8;
-        } else if (keyH.downPressed) {
-            Mapy -= 8;
-        } else if (keyH.leftPressed) {
-            Mapx += 8;
-        } else if (keyH.rightPressed) {
-            Mapx -= 8;
+
+        if (keyH.upPressed && !keyH.upcheck && keyH.leftPressed && !keyH.leftcheck) {
+            Mapx += gp.playerSpeed * 3 / 4;
+            Mapy += gp.playerSpeed * 3 / 4;
+        } else if (keyH.upPressed && !keyH.upcheck && keyH.rightPressed && !keyH.rightcheck) {
+            Mapx -= gp.playerSpeed * 3 / 4;
+            Mapy += gp.playerSpeed * 3 / 4;
+        } else if (keyH.downPressed && !keyH.downcheck && keyH.leftPressed && !keyH.leftcheck) {
+            Mapx += gp.playerSpeed * 3 / 4;
+            Mapy -= gp.playerSpeed * 3 / 4;
+        } else if (keyH.downPressed && !keyH.downcheck && keyH.rightPressed && !keyH.rightcheck) {
+            Mapx -= gp.playerSpeed * 3 / 4;
+            Mapy -= gp.playerSpeed * 3 / 4;
+        }  else if (keyH.upPressed && !keyH.upcheck) {
+            Mapy += gp.playerSpeed;
+        } else if (keyH.downPressed && !keyH.downcheck) {
+            Mapy -= gp.playerSpeed;
+        } else if (keyH.leftPressed && !keyH.leftcheck) {
+            Mapx += gp.playerSpeed;
+        } else if (keyH.rightPressed && !keyH.rightcheck) {
+            Mapx -= gp.playerSpeed;
         }
+
+        MapMinX = Mapx + gp.tileSize / 2;
+        MapMinY = Mapy + gp.tileSize / 2;
+
+        MapMaxX = Mapx + gp.tileSize / 2 *(col-1);
+        MapMaxY = Mapy + gp.tileSize / 2 *(row - 1);
+
+        if (MapMinX >= player.Collisions.getMinX()){
+            keyH.leftcheck = true;
+        }else keyH.leftcheck = false;
+
+        if (MapMinY >= player.Collisions.getMinY()){
+            keyH.upcheck = true;
+        }else keyH.upcheck = false;
+
+        if (MapMaxX <= player.Collisions.getMaxX()){
+            keyH.rightcheck = true;
+        }else keyH.rightcheck = false;
+
+        if (MapMaxY <= player.Collisions.getMaxY()){
+            keyH.downcheck = true;
+        }else keyH.downcheck = false;
+
+        // System.out.println(Mapx+ " " + Mapy+ " " +player.Collisions.getMinX() + " " + MapMinX);
     }
 
     public void loadMap() {

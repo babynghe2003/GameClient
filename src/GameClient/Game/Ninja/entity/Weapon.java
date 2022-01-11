@@ -37,15 +37,15 @@ public class Weapon extends Entity {
         setDefaultValues();
     }
 
-    // public BufferedImage getPlayerImage(String Path) {
-    //     try {
-    //         return ImageIO.read(getClass().getResourceAsStream(Path));
-    //     } catch (Exception e) {
-    //         // e.printStackTrace();
-    //         System.out.println("loi file anh weapon");
-    //     }
-    //     return null;
-    // }
+    public BufferedImage getPlayerImage(String Path) {
+        try {
+            return ImageIO.read(getClass().getResourceAsStream(Path));
+        } catch (Exception e) {
+            // e.printStackTrace();
+            System.out.println("loi file anh weapon");
+        }
+        return null;
+    }
 
     public void setDefaultValues() {
   

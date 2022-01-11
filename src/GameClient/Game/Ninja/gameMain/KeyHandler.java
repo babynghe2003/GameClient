@@ -1,9 +1,22 @@
 package GameClient.Game.Ninja.gameMain;
 
 import java.awt.event.*;
+import GameClient.Game.Ninja.entity.*;
 
 public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, attackPressed;
+
+    public boolean upcheck, downcheck, leftcheck, rightcheck;
+
+    public boolean stand;
+
+    public KeyHandler(){
+        upcheck = false;
+        downcheck = false;
+        leftcheck = false;
+        rightcheck = false;
+    }
+    
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -14,9 +27,12 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
+        stand = true;
+
         int code = e.getKeyCode();
 
         if (code == KeyEvent.VK_W) {
+
             upPressed = true;
             System.out.println("up");
 
@@ -42,6 +58,8 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+
+        stand = false;
 
         int code = e.getKeyCode();
 
