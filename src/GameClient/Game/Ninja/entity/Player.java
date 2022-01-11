@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
 
 public class Player extends Entity {
 
+    public int hearts = 8;
+
     NinjaPanel gp;
     KeyHandler keyH;
 
@@ -57,32 +59,28 @@ public class Player extends Entity {
             left = false;
         }
 
-        if (gp.timer <= 100000000){
+        if (gp.timer <= 125000000){
             step = 1;
-        }else if (gp.timer <= 200000000){
+        }else if (gp.timer <= 250000000){
             step = 2;
-        }else if (gp.timer <= 300000000) {
+        }else if (gp.timer <= 375000000) {
             step = 3;
-        }else if (gp.timer <= 400000000) {
-            step = 4;
         }else if (gp.timer <= 500000000) {
-            step = 5;
-        }else if (gp.timer <= 600000000){
-            step = 1;
-        }else if (gp.timer <= 700000000){
-            step = 2;
-        }else if (gp.timer <= 800000000) {
-            step = 3;
-        }else if (gp.timer <= 900000000) {
             step = 4;
+        }else if (gp.timer <= 625000000) {
+            step = 1;
+        }else if (gp.timer <= 750000000){
+            step = 2;
+        }else if (gp.timer <= 875000000){
+            step = 3;
         }else if (gp.timer <= 1000000000) {
-            step = 5;
+            step = 4;
         }
         
         if (!keyH.stand){
-            image = getPlayerImage(String.format("./sprites/AssasinRight-%s.png",step));
+            image = getPlayerImage(String.format("./sprites/BabyDragon-%s.png",step));
         }else
-        image = getPlayerImage(String.format("./sprites/AssasinMoveRight-%s.png",step));
+        image = getPlayerImage(String.format("./sprites/BabyDragonRun-%s.png",step));
         weapon.update();
     }
 
@@ -93,7 +91,7 @@ public class Player extends Entity {
         } else 
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
 
-        weapon.draw(g2);
+        // weapon.draw(g2);
     }
 
 }

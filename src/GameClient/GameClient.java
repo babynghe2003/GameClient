@@ -246,7 +246,7 @@ public class GameClient extends javax.swing.JFrame {
 
     private void NinjaAction(ActionEvent evt) {
         try {
-            new NinjaFrame().setVisible(true);
+            new NinjaFrame(this).setVisible(true);
             System.out.println("Ninja");
             this.dispose();
         } catch (Exception e) {

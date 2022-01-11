@@ -25,8 +25,8 @@ public class Map {
     int col;
     int row;
 
-    int Mapx;
-    int Mapy;
+    public int Mapx;
+    public int Mapy;
 
     public int MapMinX;
     public int MapMinY;
@@ -151,7 +151,6 @@ public class Map {
     }
 
     public void draw(Graphics2D g2) {
-        update();
 
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {

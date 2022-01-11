@@ -14,11 +14,8 @@ public class Weapon extends Entity {
     Player player;
     KeyHandler keyH;
 
-    // BufferedImage sword = getPlayerImage("/sprites/ciuCuaMai.png");
-    // BufferedImage cut1 = getPlayerImage("/sprites/cut-1.png"),
-    //         cut2 = getPlayerImage("/sprites/cut-2.png"),
-    //         cut3 = getPlayerImage("/sprites/cut-3.png"),
-    //         cut4 = getPlayerImage("/sprites/cut-4.png");
+    BufferedImage sword;
+    BufferedImage cut;
 
     double rota = 30;
     boolean flip = false;
@@ -48,23 +45,27 @@ public class Weapon extends Entity {
     }
 
     public void setDefaultValues() {
-  
+        
+        sword = getPlayerImage("./sprites/BloodKatana.png");
 
     }
 
     public void update() {
-        // this.x = player.x;
-        // this.y = player.y;
-        // this.direction = player.direction;
-        // this.timers = gp.currentTime;
+        
+        rota = 15;
         
 
     }
 
     public void draw(Graphics2D g2) {
 
-        
+        g2.rotate(Math.toRadians(-rota), player.x+gp.tileSize/2+ gp.tileSize*5/32, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
 
+        g2.drawImage(sword, player.x+gp.tileSize/2, player.y +gp.tileSize/5*2, gp.tileSize, gp.tileSize, null);
+
+        g2.rotate(Math.toRadians(rota), player.x+gp.tileSize/2+ gp.tileSize*5/32, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
+
+        
     }
 
 }
