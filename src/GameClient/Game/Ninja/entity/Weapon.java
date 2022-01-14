@@ -58,13 +58,20 @@ public class Weapon extends Entity {
     }
 
     public void draw(Graphics2D g2) {
+        if (player.left){
+            g2.rotate(Math.toRadians(-(180-rota)), player.x+gp.tileSize/2+ gp.tileSize*5/32 - 25, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
+
+            g2.drawImage(sword, player.x+gp.tileSize/2, player.y +gp.tileSize/5*2 +gp.tileSize - 25, gp.tileSize, -gp.tileSize, null);
+
+            g2.rotate(Math.toRadians((180-rota)), player.x+gp.tileSize/2+ gp.tileSize*5/32 - 25, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
+        }else {
 
         g2.rotate(Math.toRadians(-rota), player.x+gp.tileSize/2+ gp.tileSize*5/32, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
 
         g2.drawImage(sword, player.x+gp.tileSize/2, player.y +gp.tileSize/5*2, gp.tileSize, gp.tileSize, null);
 
         g2.rotate(Math.toRadians(rota), player.x+gp.tileSize/2+ gp.tileSize*5/32, player.y +gp.tileSize/5*2+ gp.tileSize*14/32);
-
+        }    
         
     }
 

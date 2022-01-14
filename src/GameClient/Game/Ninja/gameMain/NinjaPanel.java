@@ -16,7 +16,7 @@ import java.util.Random;
 public class NinjaPanel extends JPanel implements Runnable {
 
     public final int originalTileSize = 32;
-    public final int scale = 3;
+    public final int scale = 5;
 
     public final int tileSize = originalTileSize * scale;
     public final int maxScreenWidth = 16;
@@ -169,6 +169,7 @@ public class NinjaPanel extends JPanel implements Runnable {
             }
             
             g.drawString((String) ("Score : " + Score), 10, 60);
+            g.drawString((String) ("Hearts : " + player.hearts), screenWidth/2-400, 60);
             g.drawString((String) ("BestScore : " + (BestScore)), screenWidth-400, 60);
 
         } else {

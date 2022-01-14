@@ -87,9 +87,9 @@ public class Player extends Entity {
 
     public void draw(Graphics2D g2) {
         if (left){
-            g2.drawImage(image, x + gp.tileSize, y, -gp.tileSize, gp.tileSize, null);
+            g2.drawImage(image, x + gp.tileSize , y, -gp.tileSize, gp.tileSize, null);
         } else 
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, x , y, gp.tileSize, gp.tileSize, null);
 
         // weapon.draw(g2);
     }
