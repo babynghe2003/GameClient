@@ -13,7 +13,7 @@ import GameClient.GameClient;
 
 public class GamePanel extends JPanel implements ActionListener {
 
-    static final int scale = 2;
+    static final int scale = 1;
     static final int UNIT_SIZE = 150*scale;
     static final int SCREEN_WITDH = 612*scale;
     static final int SCREEN_HEIGHT = 650*scale;
@@ -108,14 +108,14 @@ public class GamePanel extends JPanel implements ActionListener {
             g.fillRect(0,0,SCREEN_WITDH,48*scale);
 
             g.setColor(new Color(10, 10, 10));
-            g.setFont(new Font("Ink Free", Font.BOLD, 42));
+            g.setFont(new Font("Ink Free", Font.BOLD, 24));
             if (this.Score > this.BestScore) {
                 this.gameClient.updateRecord(2, this.BestScore);
                 BestScore = Score;
             }
             
-            g.drawString((String) ("Score : " + Score), 10, 60);
-            g.drawString((String) ("BestScore : " + (BestScore)), SCREEN_WITDH-400, 60);
+            g.drawString((String) ("Score : " + Score), 10, 30);
+            g.drawString((String) ("BestScore : " + (BestScore)), SCREEN_WITDH-250, 30);
     }
 
     public void newSQR() {

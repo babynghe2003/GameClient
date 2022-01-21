@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import GameClient.GameClient;
 
 public class GamePanel extends JPanel implements ActionListener {
-    static final int scale = 2;
+    static final int scale = 1;
     static final int UNIT_SIZE = 25 * scale;
 
     static final int SCREEN_WITDH = 600 * scale;
@@ -84,14 +84,14 @@ public class GamePanel extends JPanel implements ActionListener {
             g.fillRect(0,0,SCREEN_WITDH,UNIT_SIZE);
 
         g.setColor(new Color(38,38,38));
-        g.setFont(new Font("Ink Free", Font.BOLD, 36));
+        g.setFont(new Font("Ink Free", Font.BOLD, 24));
         if (bodyParts - 6 > BestScore) {
             
             BestScore = bodyParts - 6;
         }
 
-        g.drawString((String) ("Score : " + (bodyParts - 6)), 10, 40);
-        g.drawString((String) ("BestScore : " + (BestScore)), SCREEN_WITDH - metrics.stringWidth((String) ("BestScore : " + (BestScore))) - 250, 40);
+        g.drawString((String) ("Score : " + (bodyParts - 6)), 10, 20);
+        g.drawString((String) ("BestScore : " + (BestScore)), SCREEN_WITDH - metrics.stringWidth((String) ("BestScore : " + (BestScore))) - 150, 20);
         g.setColor(Color.RED);
         g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
 

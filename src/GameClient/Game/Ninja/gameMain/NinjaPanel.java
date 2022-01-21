@@ -13,10 +13,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+
 public class NinjaPanel extends JPanel implements Runnable {
 
     public final int originalTileSize = 32;
-    public final int scale = 5;
+    public final int scale = 2;
 
     public final int tileSize = originalTileSize * scale;
     public final int maxScreenWidth = 16;
@@ -33,7 +36,7 @@ public class NinjaPanel extends JPanel implements Runnable {
 
     int playerX = 100;
     int playerY = 100;
-    public int playerSpeed = 8;
+    public int playerSpeed = 5;
 
     int mouth = 300;
     public int step;
@@ -48,6 +51,10 @@ public class NinjaPanel extends JPanel implements Runnable {
 
     NinjaFrame ninjaFrame;
 
+    BufferedImage score = getPlayerImage("./spites/Apple-1.png"), 
+                    bestScore = getPlayerImage("./spites/BestScore.png"),
+                    hearts = getPlayerImage("./spites/Hearts.png");
+
     public NinjaPanel(GameClient gameClient, NinjaFrame ninjaFrame) {
         
         this.ninjaFrame = ninjaFrame;
@@ -61,6 +68,15 @@ public class NinjaPanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
         start();
+    }
+
+    public BufferedImage getPlayerImage(String Path) {
+        try {
+            return ImageIO.read(getClass().getResourceAsStream(Path));
+        } catch (Exception e) {
+            System.out.println("loi file player anh");
+        }
+        return null;
     }
 
     public void start() {
@@ -162,15 +178,20 @@ public class NinjaPanel extends JPanel implements Runnable {
         
         
         g.setColor(new Color(10, 10, 10));
-            g.setFont(new Font("Ink Free", Font.BOLD, 42));
+            g.setFont(new Font("Ink Free", Font.BOLD, 24));
             if (this.Score > this.BestScore) {
                 
                 BestScore = Score;
             }
             
-            g.drawString((String) ("Score : " + Score), 10, 60);
-            g.drawString((String) ("Hearts : " + player.hearts), screenWidth/2-400, 60);
-            g.drawString((String) ("BestScore : " + (BestScore)), screenWidth-400, 60);
+            g.drawImage(score, 10, 5, 15*scale, 15*scale,null);
+            g.drawString((String)("x"+Score), 20+10*scale, 30);
+
+            g.drawImage(hearts, screenWidth/2-100, 5, 15*scale, 15*scale,null);
+            g.drawString((String) ("x" + player.hearts), screenWidth/2-70, 30);
+
+            g.drawImage(bestScore, screenWidth-150, 5, 15*scale, 15*scale,null);
+            g.drawString((String) ("x" + (BestScore)), screenWidth-120, 30);
 
         } else {
             gameOver(g);
@@ -183,7 +204,9 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void gameOver(Graphics g) {
+
         // game Over text
+        this.setBackground(Color.BLACK);
         g.setColor(Color.red);
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metrics = getFontMetrics(g.getFont());
@@ -197,7 +220,7 @@ public class NinjaPanel extends JPanel implements Runnable {
         g.setFont(new Font("Ink Free", Font.BOLD, 50));
         metrics = getFontMetrics(g.getFont());
         g.drawString("Press ESC to save Record!",
-                (screenWidth - metrics.stringWidth("Press ESC to save Record!")) / 2, screenWidth/2-100*scale +500);
+                (screenWidth - metrics.stringWidth("Press ESC to save Record!")) / 2, screenWidth/2-100*scale+200);
 
     }
 

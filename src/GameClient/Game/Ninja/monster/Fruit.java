@@ -25,7 +25,7 @@ public class Fruit extends FruitGoc{
 
     public Fruit(NinjaPanel gp, Map map ) {
 
-        speed = 3;
+        speed = 2;
 
         this.gp = gp;
         this.map = map;
@@ -42,7 +42,7 @@ public class Fruit extends FruitGoc{
     }
 
     public void newApple(){
-        speed = rand.nextInt(3)+3;
+        speed = rand.nextInt(2)+2;
         x=(4+rand.nextInt(13))*gp.tileSize/2; 
         y=(4+rand.nextInt(13))*gp.tileSize/2;
         rotate = rand.nextInt(360);

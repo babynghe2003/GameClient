@@ -50,8 +50,8 @@ public class Map {
         Mapx = 0;
         Mapy = 0;
 
-        col = 21;
-        row = 21;
+        col = 30;
+        row = 30;
         
 
         Maps = new Tile[row][col];
