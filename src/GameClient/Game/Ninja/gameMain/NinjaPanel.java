@@ -153,7 +153,7 @@ public class NinjaPanel extends JPanel implements Runnable {
     }
 
     public void MonsterManager(){
-        if (rand.nextInt(100) > 70)
+        if (rand.nextInt(100) > 40)
         fruits.add(new Bomb(this,map));
         else fruits.add(new Fruit(this,map));
     }

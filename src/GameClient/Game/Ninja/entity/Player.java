@@ -76,11 +76,57 @@ public class Player extends Entity {
         }else if (gp.timer <= 1000000000) {
             step = 4;
         }
+
+        
+        if (keyH.upPressed && keyH.leftPressed && y > 0 && x > 0) {
+            if (weapon.time == 0) {
+                direction = "LU";
+            }
+        } else if (keyH.upPressed && keyH.rightPressed && y > 0 && x < gp.screenWidth - gp.tileSize) {
+            if (weapon.time == 0) {
+                direction = "RU";
+            }
+        } else if (keyH.downPressed && keyH.leftPressed && y < gp.screenHeight - gp.tileSize && x > 0) {
+            if (weapon.time == 0) {
+                direction = "LD";
+            }
+        } else if (keyH.downPressed && keyH.rightPressed && y < gp.screenHeight - gp.tileSize
+                && x < gp.screenWidth - gp.tileSize) {
+           if (weapon.time == 0) {
+                direction = "RD";
+            }
+        } else if (keyH.upPressed && y > 0) {
+
+            if (weapon.time == 0) {
+                if (direction.charAt(0) == 'L') {
+                    direction = "LU";
+                } else {
+                    direction = "RU";
+                }
+            }
+        } else if (keyH.downPressed && y < gp.screenHeight - gp.tileSize) {
+            if (weapon.time == 0) {
+                if (direction.charAt(0) == 'L') {
+                    direction = "LD";
+                } else {
+                    direction = "RD";
+                }
+            }
+        } else if (keyH.leftPressed && x > 0) {
+
+            if (weapon.time == 0) {
+                direction = "LL";
+            }
+        } else if (keyH.rightPressed && x < gp.screenWidth - gp.tileSize) {
+            if (weapon.time == 0) {
+                direction = "RR";
+            }
+        }
         
         if (!keyH.stand){
-            image = getPlayerImage(String.format("./sprites/BabyDragon-%s.png",step));
+            image = getPlayerImage(String.format("./sprites/AssasinRight-%s.png",step));
         }else
-        image = getPlayerImage(String.format("./sprites/BabyDragonRun-%s.png",step));
+        image = getPlayerImage(String.format("./sprites/AssasinMoveRight-%s.png",step));
         weapon.update();
     }
 
@@ -91,7 +137,7 @@ public class Player extends Entity {
         } else 
         g2.drawImage(image, x , y, gp.tileSize, gp.tileSize, null);
 
-        // weapon.draw(g2);
+        weapon.draw(g2);
     }
 
 }

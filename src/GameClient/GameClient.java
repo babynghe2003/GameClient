@@ -51,6 +51,7 @@ public class GameClient extends javax.swing.JFrame {
         this.setBackground(new Color(38, 38, 38));
         this.setUndecorated(true);
         this.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        this.setResizable(false);
 
         initComponents();
     }
@@ -173,6 +174,7 @@ public class GameClient extends javax.swing.JFrame {
         comingGame.setBackground(new Color(45, 45, 45));
         comingGame.setFont(new Font("Noto Sans Mono", 0, 36)); 
         comingGame.setForeground(new Color(255, 255, 255));
+        comingGame.setIcon(new ImageIcon(getClass().getResource("./Logo/meoee.gif")));
         comingGame.setText("Coming soon...");
         comingGame.setCursor(new Cursor(Cursor.HAND_CURSOR));
         listGame.add(comingGame);

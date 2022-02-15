@@ -201,7 +201,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawString((String) ("Your Score: " + (bodyParts - 6)),
                 (SCREEN_WITDH - metrics.stringWidth((String) ("Your Score: " + (bodyParts - 6)))) / 2, SCREEN_WITDH/2-100*scale +100);
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Ink Free", Font.BOLD, 50));
+        g.setFont(new Font("Ink Free", Font.BOLD, 36));
         metrics = getFontMetrics(g.getFont());
         g.drawString("Press Space to play again!",
                 (SCREEN_WITDH - metrics.stringWidth("Press Space to play again!")) / 2, SCREEN_WITDH/2-100*scale +400);
