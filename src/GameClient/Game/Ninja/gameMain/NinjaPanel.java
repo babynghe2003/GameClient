@@ -141,8 +141,8 @@ public class NinjaPanel extends JPanel implements Runnable {
         for (int i = 0; i <fruits.size(); i++){
 
             
-            if ((player.Collisions.getBounds().intersects(fruits.get(i).collision.getBounds()))){
-                if (fruits.get(i) instanceof Fruit)
+            if (((player.Collisions.getBounds().intersects(fruits.get(i).collision.getBounds())))){
+                if ((fruits.get(i) instanceof Fruit))
                 Score++;
                 else player.hearts--;
                 fruits.remove(i);
@@ -169,7 +169,7 @@ public class NinjaPanel extends JPanel implements Runnable {
         player.draw(g2);
         
         for (int i = 0; i <fruits.size(); i++){
-            if (fruits.get(i) instanceof Fruit)
+            if ((fruits.get(i) instanceof Fruit))
             ((Fruit)fruits.get(i)).draw(g2);
             else ((Bomb)fruits.get(i)).draw(g2);
         }

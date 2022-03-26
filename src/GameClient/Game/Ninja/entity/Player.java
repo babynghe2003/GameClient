@@ -20,6 +20,8 @@ public class Player extends Entity {
     BufferedImage image = null;
     Weapon weapon;
 
+    public boolean attack;
+
     boolean left = false;
     int step = 1;
 
@@ -45,7 +47,7 @@ public class Player extends Entity {
         y = (gp.screenHeight - gp.tileSize)/2;
         image = getPlayerImage("./sprites/AssasinRight-1.png");
 
-        Collisions = new Rectangle(x + gp.tileSize/4,y+gp.tileSize/2, gp.tileSize/2,gp.tileSize/2);
+        Collisions = new Rectangle(x + gp.tileSize/4,y, gp.tileSize/2,gp.tileSize);
 
 
     }
@@ -128,6 +130,7 @@ public class Player extends Entity {
         }else
         image = getPlayerImage(String.format("./sprites/AssasinMoveRight-%s.png",step));
         weapon.update();
+        this.attack = weapon.attack;
     }
 
 

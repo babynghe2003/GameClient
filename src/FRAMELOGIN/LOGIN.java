@@ -96,11 +96,11 @@ public class LOGIN extends JFrame {
 
         usernameLabel.setFont(new Font("Noto Sans Mono", 0, 24)); 
         usernameLabel.setForeground(new Color(254, 254, 254));
-        usernameLabel.setText("Tên đăng nhập : ");
+        usernameLabel.setText("Username : ");
 
         passLabel.setFont(new Font("Noto Mono", 0, 24)); 
         passLabel.setForeground(new Color(254, 254, 254));
-        passLabel.setText("Mật khẩu: ");
+        passLabel.setText("Password: ");
 
         UserNameField.setFont(new Font("Noto Sans Mono", 0, 24)); 
         UserNameField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -113,7 +113,7 @@ public class LOGIN extends JFrame {
 
         Login.setBackground(new Color(248, 148, 6));
         Login.setFont(new Font("Noto Mono", 0, 24)); 
-        Login.setText("Đăng nhập");
+        Login.setText("Login");
         Login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 LoginActionPerformed(evt);
@@ -122,7 +122,7 @@ public class LOGIN extends JFrame {
 
         StartRegister.setFont(new Font("Noto Mono", 0, 24));
         StartRegister.setForeground(new Color(254, 254, 254));
-        StartRegister.setText("Chưa có tài khoản? Đăng kí");
+        StartRegister.setText("Do not have an account? Sign up now");
         StartRegister.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 StartRegisterMouseClicked(evt);

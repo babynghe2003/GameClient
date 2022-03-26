@@ -102,20 +102,20 @@ public class REGISTERFORM extends JFrame {
 
         ingameLabel.setFont(new Font("Noto Sans Mono", 0, 24));
         ingameLabel.setForeground(new Color(254, 254, 254));
-        ingameLabel.setText("Tên đầy đủ:");
+        ingameLabel.setText("Fullname:");
 
         usernameLabel.setBackground(new Color(247, 247, 247));
         usernameLabel.setFont(new Font("Noto Sans Mono", 0, 24));
         usernameLabel.setForeground(new Color(254, 254, 254));
-        usernameLabel.setText("Tên đăng nhập:");
+        usernameLabel.setText("Username:");
 
         passLabel.setFont(new Font("Noto Sans Mono", 0, 24));
         passLabel.setForeground(new Color(254, 254, 254));
-        passLabel.setText("Mật khẩu: ");
+        passLabel.setText("Password: ");
 
         passLabel2.setFont(new Font("Noto Sans Mono", 0, 24));
         passLabel2.setForeground(new Color(254, 254, 254));
-        passLabel2.setText("Nhập lại mật khẩu: ");
+        passLabel2.setText("Re-enter Password: ");
 
         IngameField.setFont(new Font("Noto Sans Mono", 0, 27));
 
@@ -128,7 +128,7 @@ public class REGISTERFORM extends JFrame {
         Register.setBackground(new Color(60, 168, 50));
         Register.setFont(new Font("Noto Sans Mono", 0, 24));
         Register.setForeground(new Color(254, 254, 254));
-        Register.setText("Đăng kí");
+        Register.setText("Register");
         Register.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 RegisterAction(evt);
@@ -138,7 +138,7 @@ public class REGISTERFORM extends JFrame {
         BackToLogin.setBackground(new Color(248, 148, 6));
         BackToLogin.setFont(new Font("Noto Mono", 0, 24));
         BackToLogin.setForeground(new Color(254, 254, 254));
-        BackToLogin.setText("Đăng nhập");
+        BackToLogin.setText("Login");
         BackToLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 LoginAction(evt);

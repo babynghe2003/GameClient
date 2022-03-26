@@ -132,7 +132,7 @@ public class GameClient extends javax.swing.JFrame {
         ninjabtn.setFont(new Font("Noto Sans Mono", 0, 36)); 
         ninjabtn.setForeground(new Color(255, 255, 255));
         ninjabtn.setIcon(new ImageIcon(getPlayerImage("./Logo/BabyDragon-1.png")));
-        ninjabtn.setText("<html>Be rong kiem an<br>Best record: <html>"+USERS.get(thutu).getRecord1());
+        ninjabtn.setText("<html>Ninja Fruit<br>Best record: <html>"+USERS.get(thutu).getRecord1());
         ninjabtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ninjabtn.setFocusPainted(false);
         ninjabtn.addActionListener(new ActionListener() {

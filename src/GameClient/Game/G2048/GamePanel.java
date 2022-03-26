@@ -120,8 +120,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void newSQR() {
         do {
-            sqrX = random.nextInt(3);
-            sqrY = random.nextInt(3);
+            sqrX = random.nextInt(4);
+            sqrY = random.nextInt(4);
         } while (x[sqrX][sqrY] > 0);
         x[sqrX][sqrY] = 2;
     }

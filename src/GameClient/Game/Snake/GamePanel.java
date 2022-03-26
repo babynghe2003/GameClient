@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements ActionListener {
     int appleY;
     char direction = 'D';
     boolean running = true;
-    Timer timer = new Timer(DELAY, this);;
+    Timer timer = new Timer(DELAY, this);
     Random random;
     int mouth = 300;
     boolean bite = true;
@@ -164,7 +164,7 @@ public class GamePanel extends JPanel implements ActionListener {
         // checks if head collides with body
         for (int i = bodyParts; i > 0; i--) {
             if ((x[0] == x[i]) && (y[0] == y[i])) {
-                running = false;
+                running = true;
             }
         }
         // check if head touches left border
